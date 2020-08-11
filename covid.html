@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="covid/covid.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="covid/covid.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <!-- Global Statistics -->
+    <div class="container p-1 overlay">
+        <h1 class="text-white">World Statistics:</h1>
+        <small class="text-white-50">Date Recorded: <span id="date">{{date}}</span></small>
+        <div class="row my-4 text-white">
+            <div class="col-6 col-sm-3 my-3 my-sm-1 text-center">
+                <div><strong id="total-cases" class="text-danger">{{Total Cases}}</strong></div>
+                <div><strong>Total Cases</strong></div>
+            </div>
+            <div class="col-6 col-sm-3 my-3 my-sm-1 text-center">
+                <div><strong id="active-cases" class="text-danger">{{Active Cases}}</strong></div>
+                <div><strong>Active Cases</strong></div>
+            </div>
+            <div class="col-6 col-sm-3 my-3 my-sm-1 text-center">
+                <div><strong id="total-deaths" class="text-danger">{{Total Deaths}}</strong></div>
+                <div><strong>Total Deaths</strong></div>
+            </div>
+            <div class="col-6 col-sm-3 my-3 my-sm-1 text-center">
+                <div><strong id="total-recovered" class="text-success">{{Total Recovered}}</strong></div>
+                <div><strong>Total Recovered</strong></div>
+            </div>
+        </div>
+    </div>
+    <!-- Country Tables -->
+    <div class="container px-0 table-responsive-md bg-white table-striped overlay">
+        <table class="table table-hover px-0 mb-0">
+            <thead class="text-white" style="background-color: #4b636e;">
+                <tr>
+                    <th onclick="sort('country_name')"><strong>Country Name</strong></th>
+                    <th onclick="sort('cases')"><strong>Cases</strong></th>
+                    <th onclick="sort('deaths')"><strong>Deaths</strong></th>
+                    <th onclick="sort('total_recovered')"><strong>Recovered</strong></th>
+                    <th onclick="sort('active_cases')"><strong>Active</strong></th>
+                    <th onclick="sort('serious_critical')"><strong>Serious</strong></th>
+                </tr>
+            </thead>
+            <tbody class="text-black-50">
+            </tbody>
+        </table>
+    </div>
+    <!-- Charts -->
+    <div class="container bg-white overlay">
+        <div class="row">
+            <div class="text-center col-6 col-md-4">
+                <strong>Most Deaths</strong>
+                <canvas id="myChart" width="500px" height="500px"></canvas>
+            </div>
+            <div class="text-center col-6 col-md-4">
+                <strong>Most New Cases</strong>
+                <canvas id="myChart2" width="500px" height="500px"></canvas>
+            </div>
+            <div class="text-center col-6 col-md-4">
+                <strong>Most New Deaths</strong>
+                <canvas id="myChart3" width="500px" height="500px"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./Portfolio/particles.js"></script>
+<script src="./Portfolio/particles-app.js"></script>
+</html>
